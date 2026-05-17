@@ -1,86 +1,92 @@
 # Test Cases for https://www.saucedemo.com
 
-# Test Cases for Swag Labs Login Page
+# QA Test Cases for Swag Labs Login Page
 
 ## Test Case 1: Successful Login with Standard User
 
 **Test Case Name:** Verify successful login with standard_user credentials
 
-**Description:** Validate that a standard user can successfully log in to the Swag Labs application using valid credentials.
+**Description:** 
+Validate that a user can successfully log in to Swag Labs using the standard_user username and correct password, and is redirected to the products/inventory page.
 
 **Steps to Reproduce:**
 1. Navigate to the Swag Labs login page
-2. Enter username: "standard_user"
-3. Enter password: "secret_sauce"
+2. Enter "standard_user" in the username field
+3. Enter "secret_sauce" in the password field
 4. Click the "Login" button
+5. Observe the page redirect and content
 
 **Expected Result:**
-- User is successfully authenticated
-- User is redirected to the inventory/dashboard page
+- Login is successful
+- User is redirected to the inventory/products page
 - No error messages are displayed
-- User session is established
+- User dashboard or product listing is visible
 
 ---
 
-## Test Case 2: Login with Locked Out User
+## Test Case 2: Login Attempt with Locked Out User
 
-**Test Case Name:** Verify locked_out_user receives appropriate error message
+**Test Case Name:** Verify locked_out_user cannot access the application
 
-**Description:** Validate that the locked_out_user account displays an appropriate error message preventing login.
+**Description:**
+Validate that the locked_out_user account is unable to log in and receives an appropriate error message indicating the account is locked.
 
 **Steps to Reproduce:**
 1. Navigate to the Swag Labs login page
-2. Enter username: "locked_out_user"
-3. Enter password: "secret_sauce"
+2. Enter "locked_out_user" in the username field
+3. Enter "secret_sauce" in the password field
 4. Click the "Login" button
+5. Observe error message displayed
 
 **Expected Result:**
-- Login is rejected
+- Login fails
 - An error message is displayed stating the user is locked out (e.g., "Sorry, this user has been locked out")
 - User remains on the login page
-- No session is created
+- No redirect to the inventory page occurs
 
 ---
 
-## Test Case 3: Login with Problem User
+## Test Case 3: Login with Problem User Account
 
 **Test Case Name:** Verify login functionality with problem_user account
 
-**Description:** Validate that problem_user can log in successfully and identify any UI rendering issues specific to this account.
+**Description:**
+Validate that the problem_user account can log in successfully, but may experience UI/functional issues on subsequent pages as per the test user designation.
 
 **Steps to Reproduce:**
 1. Navigate to the Swag Labs login page
-2. Enter username: "problem_user"
-3. Enter password: "secret_sauce"
+2. Enter "problem_user" in the username field
+3. Enter "secret_sauce" in the password field
 4. Click the "Login" button
-5. Observe the inventory page for any visual or functional anomalies
+5. Verify page loads and check for any UI anomalies
 
 **Expected Result:**
-- User successfully logs in and is redirected to the inventory page
-- Login functionality works as expected
-- Note any visual rendering issues or UI anomalies that appear on the inventory page
-- All interactive elements are functional
+- Login is successful
+- User is redirected to the inventory page
+- User may observe visual or functional issues on the page (intentional for testing purposes)
+- No error message is displayed during login
 
 ---
 
 ## Test Case 4: Login Attempt with Incorrect Password
 
-**Test Case Name:** Verify login fails with valid username but incorrect password
+**Test Case Name:** Verify login fails with correct username but incorrect password
 
-**Description:** Validate that login is rejected when correct username is paired with an incorrect password.
+**Description:**
+Validate that login fails when a valid username is entered with an incorrect password, and an appropriate error message is displayed.
 
 **Steps to Reproduce:**
 1. Navigate to the Swag Labs login page
-2. Enter username: "standard_user"
-3. Enter password: "incorrect_password"
+2. Enter "standard_user" in the username field
+3. Enter an incorrect password (e.g., "wrong_password")
 4. Click the "Login" button
+5. Observe error message
 
 **Expected Result:**
-- Login attempt fails
-- An error message is displayed (e.g., "Username and password do not match any user in this service")
+- Login fails
+- Error message is displayed (e.g., "Username and password do not match any user in this service")
 - User remains on the login page
-- No session is created
-- Password field is cleared or masked
+- No redirect occurs
 
 ---
 
@@ -88,19 +94,20 @@
 
 **Test Case Name:** Verify login with performance_glitch_user and assess page load performance
 
-**Description:** Validate that performance_glitch_user can log in and monitor for performance issues or slow page loads specific to this account.
+**Description:**
+Validate that the performance_glitch_user account can successfully log in, but the application may exhibit slow load times or performance issues on subsequent pages.
 
 **Steps to Reproduce:**
 1. Navigate to the Swag Labs login page
-2. Enter username: "performance_glitch_user"
-3. Enter password: "secret_sauce"
+2. Enter "performance_glitch_user" in the username field
+3. Enter "secret_sauce" in the password field
 4. Click the "Login" button
 5. Monitor page load time and responsiveness
-6. Interact with page elements (clicking, scrolling)
+6. Navigate through inventory page
 
 **Expected Result:**
-- User successfully authenticates and is redirected to the inventory page
-- Login completes successfully despite potential performance delays
-- Page eventually loads completely (may take longer than standard_user)
-- All page elements are functional, though response time may be slower
-- No functionality is broken due to performance issues
+- Login is successful
+- User is redirected to the inventory page
+- Page may load slower than expected (intentional for testing)
+- Application remains functional despite potential performance delays
+- No login error messages are displayed
