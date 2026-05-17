@@ -30,8 +30,9 @@ jobs:
       - name: Run tests
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          REQRES_API_KEY: ${{ secrets.REQRES_API_KEY }}
         run: |
-          pytest tests/test_saucedemo.py -v --alluredir=reports/allure-results
+          pytest tests/ -v --alluredir=reports/allure-results
 
       - name: Upload Allure results
         uses: actions/upload-artifact@v4
